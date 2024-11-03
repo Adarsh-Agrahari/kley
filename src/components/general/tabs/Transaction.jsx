@@ -4,11 +4,11 @@ import { MdOutlineFilterList } from "react-icons/md";
 import { CiSearch } from "react-icons/ci";
 import { FaCircleNotch, FaEyeSlash, FaRegAddressBook } from "react-icons/fa";
 import { RiExternalLinkLine } from "react-icons/ri";
-import { LuWalletCards } from "react-icons/lu";
-import { IoIosArrowForward, IoMdAdd } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
 import { MdOutlineModeEdit } from "react-icons/md";
-import { IoCashOutline, IoEyeOutline } from "react-icons/io5";
+import { IoCashOutline } from "react-icons/io5";
 import TransactionHistory from "./TransactionHistory";
+import BankCard from "./BankCard";
 
 export default function Transaction() {
 	return (
@@ -40,50 +40,7 @@ export default function Transaction() {
 			<div className={styles.container}>
 				<div className={styles.leftSide}>
 					<div className={styles.cardSection}>
-						<div className={styles.myCard}>
-							<div className={styles.sectionHeader}>
-								<div className={styles.sectionTitle}>
-									{" "}
-									<LuWalletCards
-										className={styles.sectionIcon}
-									/>
-									My card
-								</div>
-								<div className={styles.headingBtnContainer}>
-									<button
-										className={styles.tableFilterButton}
-									>
-										<IoMdAdd />
-										Add card
-									</button>
-								</div>
-							</div>
-							<div className={styles.card}>
-								<img
-									src="img/card.jpg"
-									alt="Card Background"
-									className={styles.cardImg}
-								/>
-								<div className={styles.cardDetails}>
-									<p className={styles.cardName}>Kley Card</p>
-									<p className={styles.cardNumber}>
-										100-1244-1255-325
-										<IoEyeOutline
-											className={styles.cardEye}
-										/>
-									</p>
-									<p className={styles.cardHolder}>
-										Hidayatama Irsadanar
-									</p>
-									<div className={styles.cardInfo}>
-										<p className={styles.expiration}>
-											Exp 09/25
-										</p>
-										<p className={styles.cvc}>CVC 234</p>
-									</div>
-								</div>
-							</div>
-						</div>
+						<BankCard />
 
 						<div className={styles.sectionHeader}>
 							<div className={styles.sectionTitle}>
