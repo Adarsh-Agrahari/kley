@@ -96,9 +96,9 @@
 
 .card {
 	position: relative;
-	width: 420px;
-	height: 230px;
-	border-radius: 15px;
+	width: inherit;
+	aspect-ratio: 16 / 9;
+	/* border-radius: 15px; */
 	overflow: hidden;
 	background: linear-gradient(
 		135deg,
@@ -116,9 +116,8 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 100%;
+	width: inherit;
 	height: 100%;
-	/* opacity: 0.2;  */
 	z-index: 1;
 	object-fit: cover;
 }
@@ -457,7 +456,7 @@
 }
 
 .transactionDate {
-  color: #666;
+	color: #666;
 }
 
 .transactionStatusCompleted {
@@ -510,4 +509,16 @@
 
 .transactionStatusProgress p {
 	font-size: 14px;
+}
+
+@media screen and (max-width: 600px) {
+	.container {
+		flex-direction: column;
+	}
+	.leftSide {
+		width: 100%;
+	}
+	.mainContent {
+		width: 100%;
+	}
 }
