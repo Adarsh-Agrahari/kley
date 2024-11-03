@@ -105,3 +105,12 @@
 	border-radius: 10px;
 	border-top-left-radius: 0;
 }
+
+@media screen and (max-width: 600px){
+	.headingContainer {
+		padding: 20px 10px;
+	}
+	.content{
+		padding: 10px;
+	}
+}

@@ -346,4 +346,15 @@
 	.sidebar.open {
 		position: fixed;
 	}
+	.mainContent::-webkit-scrollbar {
+		width: 4px;
+		height: 4px;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	
+	.mainContent {
+		padding: 20px 0px 0px 0px;
+	}
 }
