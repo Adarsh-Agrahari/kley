@@ -202,17 +202,19 @@
 	justify-content: space-around;
 }
 .slLeft {
-	padding: 8px 20px;
+	padding: 8px 8px;
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-evenly;
+	gap: 4px;
 	margin: 0 auto;
 	width: 50%;
 	border-right: 1px solid #ddd;
 }
 .slRight {
-	padding: 8px 20px;
+	padding: 8px 8px;
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-evenly;
+	gap: 4px;
 	margin: auto 0;
 	width: 50%;
 }
