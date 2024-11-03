@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "../styles/Dashboard.module.css";
 import { FaCreditCard, FaExchangeAlt, FaHandHoldingUsd } from "react-icons/fa";
 import { LuChevronsUpDown, LuWalletCards } from "react-icons/lu";
@@ -24,6 +24,7 @@ import Exchange from "./general/Exchange";
 import MyCards from "./general/MyCards";
 import Transfer from "./general/Transfer";
 import Overview from "./general/Overview";
+import { IoMdMenu } from "react-icons/io";
 
 const user = {
 	name: "Hidayatma Isradana",
@@ -102,122 +103,149 @@ const menu = {
 export default function Sidebar({ currentTab, setCurrentTab }) {
 	const [isOpen, setIsOpen] = useState(true);
 
+	const breakpoint = 1024;
+
 	const toggleSidebar = () => {
 		setIsOpen(!isOpen);
 	};
 
+	useEffect(() => {
+		const handleResize = () => {
+			if (window.innerWidth < breakpoint) {
+				setIsOpen(false);
+			} else {
+				setIsOpen(true);
+			}
+		};
+
+		// Call handleResize once to set the initial state based on current window width
+		handleResize();
+
+		// No need to add a resize listener since we only want this effect to run once
+	}, [breakpoint]); // Still listening to breakpoint changes
+
 	return (
-		<div
-			className={`${styles.sidebar} ${
-				isOpen ? styles.open : styles.closed
-			}`}
-		>
-			<div className={styles.sidebarHeader}>
-				<div className={styles.sidebarLogoContainer}>
-					<img
-						src="img/logo.png"
-						className={styles.profileImage}
-					></img>
+		<>
+			<button className={styles.toggleIconBtn} onClick={toggleSidebar}>
+				<IoMdMenu className={styles.toggleIcon} />
+			</button>
+			<div
+				className={`${styles.sidebar} ${
+					isOpen ? styles.open : styles.closed
+				}`}
+			>
+				<div className={styles.sidebarHeader}>
+					<div className={styles.sidebarLogoContainer}>
+						<img
+							src="img/logo.png"
+							className={styles.profileImage}
+						></img>
+						{isOpen && (
+							<div className={styles.sidebarLogoText}>kley.</div>
+						)}
+					</div>
+
 					{isOpen && (
-						<div className={styles.sidebarLogoText}>kley.</div>
+						<button onClick={toggleSidebar}>
+							<FiSidebar />
+						</button>
 					)}
 				</div>
-
-				{isOpen && (
-					<button onClick={toggleSidebar}>
+				{!isOpen && (
+					<button
+						onClick={toggleSidebar}
+						className={styles.sidebarToggleBtn}
+					>
 						<FiSidebar />
 					</button>
 				)}
-			</div>
-			{!isOpen && (
-				<button
-					onClick={toggleSidebar}
-					className={styles.sidebarToggleBtn}
-				>
-					<FiSidebar />
-				</button>
-			)}
-			<hr className={styles.divider} />
+				<hr className={styles.divider} />
 
-			{/* Profile Section */}
-			<div className={styles.profileSection}>
-				<img
-					src="img/profile.png"
-					alt="Profile"
-					className={styles.profileImage}
-				/>
-				{isOpen && (
-					<>
-						<div className={styles.profileInfo}>
-							<p className={styles.profileName}>{user.name}</p>
-							<p className={styles.profileOrg}>{user.org}</p>
-						</div>
-						<button className={styles.switchProfileBtn}>
-							<LuChevronsUpDown />
-						</button>
-					</>
-				)}
-			</div>
-			{isOpen && <hr className={styles.divider} />}
+				{/* Profile Section */}
+				<div className={styles.profileSection}>
+					<img
+						src="img/profile.png"
+						alt="Profile"
+						className={styles.profileImage}
+					/>
+					{isOpen && (
+						<>
+							<div className={styles.profileInfo}>
+								<p className={styles.profileName}>
+									{user.name}
+								</p>
+								<p className={styles.profileOrg}>{user.org}</p>
+							</div>
+							<button className={styles.switchProfileBtn}>
+								<LuChevronsUpDown />
+							</button>
+						</>
+					)}
+				</div>
+				{isOpen && <hr className={styles.divider} />}
 
-			{/* Menu Section */}
-			<div className={styles.menuSection}>
-				<div className={styles.sidebarMenu}>
-					{Object.keys(menu).map((category) => (
-						<div key={category} className={styles.menuItems}>
-							{isOpen ? (
-								<p className={styles.menuTitle}>{category}</p>
-							) : (
-								<div className={styles.divider} />
-							)}
+				{/* Menu Section */}
+				<div className={styles.menuSection}>
+					<div className={styles.sidebarMenu}>
+						{Object.keys(menu).map((category) => (
+							<div key={category} className={styles.menuItems}>
+								{isOpen ? (
+									<p className={styles.menuTitle}>
+										{category}
+									</p>
+								) : (
+									<div className={styles.divider} />
+								)}
 
-							<ul>
-								{menu[category].map((item) => (
-									<li key={item.content}>
-										<button
-											className={`${
-												currentTab.name === item.name
-													? styles.menuButtonActive
-													: ""
-											} ${styles.menuButton}`}
-											onClick={() => {
-												setCurrentTab(item);
-											}}
-										>
-											<div
+								<ul>
+									{menu[category].map((item) => (
+										<li key={item.content}>
+											<button
 												className={`${
 													currentTab.name ===
 													item.name
-														? styles.activeIcon
+														? styles.menuButtonActive
 														: ""
-												} ${styles.icon}`}
+												} ${styles.menuButton}`}
+												onClick={() => {
+													setCurrentTab(item);
+												}}
 											>
-												{item.icon}
-											</div>
-											{isOpen && item.name}
-										</button>
-									</li>
-								))}
-							</ul>
-						</div>
-					))}
-				</div>
-				<div className={styles.sidebarMenu}>
-					<button className={styles.menuButton}>
-						<div className={styles.icon}>
-							<IoSettingsOutline />
-						</div>
-						{isOpen && "Settings"}
-					</button>
-					<button className={styles.menuButton}>
-						<div className={styles.icon}>
-							<MdOutlineHelpOutline />
-						</div>
-						{isOpen && "Help Center"}
-					</button>
-					{isOpen && <ProCard />}
+												<div
+													className={`${
+														currentTab.name ===
+														item.name
+															? styles.activeIcon
+															: ""
+													} ${styles.icon}`}
+												>
+													{item.icon}
+												</div>
+												{isOpen && item.name}
+											</button>
+										</li>
+									))}
+								</ul>
+							</div>
+						))}
+					</div>
+					<div className={styles.sidebarMenu}>
+						<button className={styles.menuButton}>
+							<div className={styles.icon}>
+								<IoSettingsOutline />
+							</div>
+							{isOpen && "Settings"}
+						</button>
+						<button className={styles.menuButton}>
+							<div className={styles.icon}>
+								<MdOutlineHelpOutline />
+							</div>
+							{isOpen && "Help Center"}
+						</button>
+						{isOpen && <ProCard />}
+					</div>
 				</div>
 			</div>
-		</div>
+		</>
 	);
 }
