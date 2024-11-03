@@ -1,0 +1,513 @@
+/* CategorySearchBar */
+.categorySearchBar {
+	display: flex;
+	align-items: center;
+	border-radius: 8px;
+	border: 1px solid #e7e6e6;
+	overflow: hidden;
+	padding-right: 10px;
+}
+
+.filter {
+	display: flex;
+	align-items: center;
+	background-color: #f5f5f5;
+	padding-right: 8px;
+}
+
+.filterIcon {
+	padding-left: 6px;
+	padding-right: 0px;
+	width: 24px;
+	height: 24px;
+}
+
+.categorySelect {
+	padding: 8px 2px;
+	background-color: #f5f5f5;
+	color: #333;
+	border: 0;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.searchInput {
+	flex: 1;
+	padding: 8px;
+	border: 0;
+	font-size: 14px;
+	border-left: 1px solid #e7e6e6;
+	margin-right: 8px;
+}
+
+.searchIcon {
+	width: 20px;
+	height: 20px;
+}
+
+.card {
+	background: #333;
+	color: #fff;
+	padding: 16px;
+	border-radius: 8px;
+}
+.cardDetails {
+	display: flex;
+	flex-direction: column;
+}
+.cardName {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+.cardNumber {
+	font-size: 1.5em;
+	letter-spacing: 2px;
+}
+.cardHolder,
+.expiration,
+.cvc {
+	font-size: 0.8em;
+}
+.billing {
+	padding: 10px;
+	color: #333;
+}
+.spendingLimits {
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+}
+
+.container {
+	display: flex;
+}
+
+/* LeftSide */
+
+.leftSide {
+	width: 35%;
+	padding-top: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+/* My Card */
+
+.card {
+	position: relative;
+	width: 420px;
+	height: 230px;
+	border-radius: 15px;
+	overflow: hidden;
+	background: linear-gradient(
+		135deg,
+		#4e54c8,
+		#8f94fb
+	); /* Gradient background */
+	color: #fff;
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+	font-family: Arial, sans-serif;
+	padding: 20px;
+}
+
+/* Background image */
+.cardImg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	/* opacity: 0.2;  */
+	z-index: 1;
+	object-fit: cover;
+}
+
+/* Card details container */
+.cardDetails {
+	position: relative;
+	z-index: 2; /* Ensures text appears above background image */
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+}
+
+/* Card Name */
+.cardName {
+	font-size: 18px;
+	font-weight: bold;
+	margin: 0 0 10px;
+}
+
+/* Card Number */
+.cardNumber {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	font-size: 24px;
+	letter-spacing: 2px;
+	margin: 0 0 20px;
+}
+
+/* Card Holder and Expiration */
+.cardHolder,
+.expiration,
+.cvc {
+	font-size: 14px;
+	margin: 0;
+	display: flex;
+	justify-content: space-between;
+}
+
+.cardInfo {
+	color: #ddd;
+	display: flex;
+	gap: 40px;
+}
+
+/* .expiration {
+  margin-top: 15px;
+}
+
+.cvc {
+  text-align: right;
+} */
+
+.cardSection {
+	background-color: #f5f5f5;
+	border-radius: 10px;
+	padding: 15px 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.myCard {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.cardEye {
+	color: #ddd;
+}
+
+.myCardHeader {
+	display: flex;
+}
+
+/* Speeding Limits */
+.speedingLimits {
+	border: 1px solid #ddd;
+	background-color: white;
+	border-radius: 15px;
+}
+
+.SlHeader {
+	padding: 10px 20px;
+	display: flex;
+	justify-content: space-around;
+}
+
+.SlBody {
+	display: flex;
+	justify-content: space-around;
+}
+.slLeft {
+	padding: 8px 20px;
+	display: flex;
+	justify-content: space-around;
+	margin: 0 auto;
+	width: 50%;
+	border-right: 1px solid #ddd;
+}
+.slRight {
+	padding: 8px 20px;
+	display: flex;
+	justify-content: space-around;
+	margin: auto 0;
+	width: 50%;
+}
+.SlBody span {
+	font-size: 14px;
+}
+.SlBody p {
+	font-size: 16px;
+	font-weight: bold;
+}
+.slIcon1 {
+	width: 40px;
+	height: 40px;
+	color: blue;
+}
+.slIcon2 {
+	width: 40px;
+	height: 40px;
+	color: orangered;
+}
+.mainContent {
+	width: 65%;
+	padding: 20px 0 20px 20px;
+}
+
+.accountSection {
+	border: 1px solid #ddd;
+	padding: 15px 0;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.hr {
+	border: 1px solid #ddd;
+}
+
+.availableFunds {
+	padding: 0 20px;
+}
+
+.funds {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 10px;
+}
+
+.funds span {
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.funds p {
+	font-size: 16px;
+	display: flex;
+	gap: 10px;
+	justify-content: center;
+}
+
+.recentTransfer {
+	padding: 0 20px;
+}
+
+.transferCards {
+	display: flex;
+	flex-direction: column;
+	padding: 0 10px;
+}
+
+/* Contact Card Container */
+.transferCard {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 10px;
+	background-color: #fff;
+	border-radius: 10px;
+	font-family: Arial, sans-serif;
+	transition: box-shadow 0.3s ease;
+}
+
+/* Add shadow effect on hover */
+.transferCard:hover {
+	background-color: #f5f5f5;
+}
+
+/* Circle Avatar */
+.avatar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: #4caf50; /* Customize background color */
+	color: #fff;
+	font-size: 18px;
+	font-weight: bold;
+	margin-right: 16px;
+	text-transform: uppercase; /* Makes initials uppercase */
+}
+
+/* Contact Details */
+.transferDetails {
+	flex: 1;
+}
+
+/* Username and Date */
+.usernameDate {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 4px;
+}
+
+.username {
+	font-size: 16px;
+	font-weight: bold;
+	color: #333;
+}
+
+.date {
+	font-size: 14px;
+	color: #888;
+}
+
+/* Organization and Number */
+.organization {
+	font-size: 14px;
+	color: #555;
+	margin-bottom: 4px;
+}
+
+.number {
+	font-size: 14px;
+	color: #ff5454;
+	font-weight: bold;
+}
+
+/* Transaction History */
+
+.transactionHistory {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.sectionTitle {
+	font-size: 16px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.sectionHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.subTitle {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.subTitle p {
+	color: #666;
+	font-size: 12px;
+}
+
+.sectionIcon {
+	width: 18px;
+	height: 18px;
+}
+
+.headingBtnContainer {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	margin-bottom: 4px;
+}
+
+.tableFilterButton {
+	display: flex;
+	cursor: pointer;
+	gap: 7px;
+	border-radius: 5px;
+	border: solid 1px #d2d0d0;
+	background-color: white;
+	font-size: 12px;
+	padding: 5px 10px;
+}
+
+/* Transaction History Table */
+
+.table {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0;
+	font-size: 14px;
+	border-radius: 10px;
+	overflow: hidden;
+	border: 1px solid #ddd;
+}
+
+.table th {
+	padding: 8px 16px;
+	color: #5f5c5c;
+	text-align: left;
+	background-color: #eae9e9;
+}
+
+.tableHeader {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.table td {
+	padding: 14px 16px;
+	text-align: left;
+	border-top: 1px solid #ddd;
+}
+
+.table td:nth-child(5) {
+	font-weight: bold;
+}
+
+.transactionDate {
+  color: #666;
+}
+
+.transactionStatusCompleted {
+	color: rgb(30, 172, 30);
+	font-weight: bold;
+	display: flex;
+	gap: 6px;
+	align-items: center;
+	font-size: 18px;
+}
+
+.transactionStatusCompleted p {
+	font-size: 14px;
+}
+
+.transactionStatusPending {
+	color: blue;
+	font-weight: bold;
+	display: flex;
+	gap: 6px;
+	align-items: center;
+	font-size: 18px;
+}
+
+.transactionStatusPending p {
+	font-size: 14px;
+}
+
+.transactionStatusCancelled {
+	color: red;
+	font-weight: bold;
+	display: flex;
+	gap: 6px;
+	align-items: center;
+	font-size: 18px;
+}
+
+.transactionStatusCancelled p {
+	font-size: 14px;
+}
+
+.transactionStatusProgress {
+	color: gray;
+	font-weight: bold;
+	display: flex;
+	gap: 6px;
+	align-items: center;
+	font-size: 18px;
+}
+
+.transactionStatusProgress p {
+	font-size: 14px;
+}
