@@ -117,12 +117,8 @@ export default function Sidebar({ currentTab, setCurrentTab }) {
 				setIsOpen(true);
 			}
 		};
-
-		// Call handleResize once to set the initial state based on current window width
 		handleResize();
-
-		// No need to add a resize listener since we only want this effect to run once
-	}, [breakpoint]); // Still listening to breakpoint changes
+	}, [breakpoint, currentTab]);
 
 	return (
 		<>
