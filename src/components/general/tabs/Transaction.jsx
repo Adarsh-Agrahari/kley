@@ -185,7 +185,9 @@ export default function Transaction() {
 									<p className={styles.cardName}>Kley Card</p>
 									<p className={styles.cardNumber}>
 										100-1244-1255-325
-										<IoEyeOutline className={styles.cardEye}/>
+										<IoEyeOutline
+											className={styles.cardEye}
+										/>
 									</p>
 									<p className={styles.cardHolder}>
 										Hidayatama Irsadanar
@@ -305,13 +307,17 @@ export default function Transaction() {
 										</span>
 									</div>
 								</div>
-								<div class={styles.transferDetails}>
-									<div class={styles.number}>-Rp120,000</div>
-									<div class={styles.organization}>
-										Wealth transfer
+								<div class={styles.datas}>
+									<div class={styles.transferDetails}>
+										<div class={styles.number}>
+											-Rp120,000
+										</div>
+										<div class={styles.organization}>
+											Wealth transfer
+										</div>
 									</div>
+									<IoIosArrowForward />
 								</div>
-								<IoIosArrowForward />
 							</div>
 							<div class={styles.transferCard}>
 								<div class={styles.avatar}>JC</div>
@@ -325,13 +331,17 @@ export default function Transaction() {
 										</span>
 									</div>
 								</div>
-								<div class={styles.transferDetails}>
-									<div class={styles.number}>-Rp20,000</div>
-									<div class={styles.organization}>
-										Investment
+								<div class={styles.datas}>
+									<div class={styles.transferDetails}>
+										<div class={styles.number}>
+											-Rp20,000
+										</div>
+										<div class={styles.organization}>
+											Investment
+										</div>
 									</div>
+									<IoIosArrowForward />
 								</div>
-								<IoIosArrowForward />
 							</div>
 							<div class={styles.transferCard}>
 								<div class={styles.avatar}>JC</div>
@@ -345,13 +355,17 @@ export default function Transaction() {
 										</span>
 									</div>
 								</div>
-								<div class={styles.transferDetails}>
-									<div class={styles.number}>-Rp110,000</div>
-									<div class={styles.organization}>
-										Investment
+								<div class={styles.datas}>
+									<div class={styles.transferDetails}>
+										<div class={styles.number}>
+											-Rp110,000
+										</div>
+										<div class={styles.organization}>
+											Investment
+										</div>
 									</div>
+									<IoIosArrowForward />
 								</div>
-								<IoIosArrowForward />
 							</div>
 						</div>
 					</div>
@@ -414,7 +428,9 @@ export default function Transaction() {
 										<td>
 											<input type="checkbox" />
 										</td>
-										<td className={styles.transactionDate}>{transaction.Date}</td>
+										<td className={styles.transactionDate}>
+											{transaction.Date}
+										</td>
 										<td>{transaction.Time}</td>
 										<td>{transaction.Description}</td>
 										<td>{transaction.Amount}</td>
