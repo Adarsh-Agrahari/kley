@@ -3,6 +3,7 @@ import styles from "@/styles/TransactionTab.module.css";
 import { LuWalletCards } from "react-icons/lu";
 import { IoMdAdd } from "react-icons/io";
 import { IoEyeOutline } from "react-icons/io5";
+import { FaEyeSlash } from "react-icons/fa";
 
 export default function Transaction() {
 	const [isHidden, setIsHidden] = useState(false);
@@ -37,10 +38,18 @@ export default function Transaction() {
 					<p className={styles.cardName}>Kley Card</p>
 					<p className={styles.cardNumber}>
 						{isHidden ? cardNumber.replace(/\d/g, "X") : cardNumber}
-						<IoEyeOutline
-							className={styles.cardEye}
-							onClick={toggleVisibility}
-						/>
+						{!isHidden && (
+							<IoEyeOutline
+								className={styles.cardEye}
+								onClick={toggleVisibility}
+							/>
+						)}
+						{isHidden && (
+							<FaEyeSlash
+								className={styles.cardEye}
+								onClick={toggleVisibility}
+							/>
+						)}
 					</p>
 					<p className={styles.cardHolder}>Hidayatama Irsadanar</p>
 					<div className={styles.cardInfo}>

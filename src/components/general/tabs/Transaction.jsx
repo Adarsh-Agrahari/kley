@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "@/styles/TransactionTab.module.css";
 import { MdOutlineFilterList } from "react-icons/md";
 import { CiSearch } from "react-icons/ci";
@@ -6,11 +6,17 @@ import { FaCircleNotch, FaEyeSlash, FaRegAddressBook } from "react-icons/fa";
 import { RiExternalLinkLine } from "react-icons/ri";
 import { IoIosArrowForward } from "react-icons/io";
 import { MdOutlineModeEdit } from "react-icons/md";
-import { IoCashOutline } from "react-icons/io5";
+import { IoCashOutline, IoEyeOutline } from "react-icons/io5";
 import TransactionHistory from "./TransactionHistory";
 import BankCard from "./BankCard";
 
 export default function Transaction() {
+	const [isHidden, setIsHidden] = useState(true);
+	const pinNumber = "805624";
+	const toggleVisibility = () => {
+		setIsHidden(!isHidden);
+	};
+
 	return (
 		<>
 			<div className={styles.categorySearchBar}>
@@ -107,10 +113,22 @@ export default function Transaction() {
 							<div className={styles.funds}>
 								<span>Rp 1,124,346.00</span>
 								<p>
-									• • • • • 325
-									<FaEyeSlash
-										className={styles.sectionIcon}
-									/>
+									{isHidden
+										? pinNumber.replace(/\d/g, "• ")
+										: pinNumber}
+									325
+									{isHidden && (
+										<FaEyeSlash
+											className={styles.sectionIcon}
+											onClick={toggleVisibility}
+										/>
+									)}
+									{!isHidden && (
+										<IoEyeOutline
+											className={styles.sectionIcon}
+											onClick={toggleVisibility}
+										/>
+									)}
 								</p>
 							</div>
 						</div>
