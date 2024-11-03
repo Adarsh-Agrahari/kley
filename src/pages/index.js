@@ -1,7 +1,14 @@
 import Head from "next/head";
-import localFont from "next/font/local";
+import Overview from "@/components/general/Overview.jsx";
+import Sidebar from "../components/Sidebar.jsx";
+import styles from "../styles/Dashboard.module.css";
+import { useState } from "react";
 
 export default function Home() {
+	const [currentTab, setCurrentTab] = useState({
+		name: "Overview",
+		component: <Overview />,
+	});
 	return (
 		<>
 			<Head>
@@ -16,7 +23,13 @@ export default function Home() {
 				/>
 				<link rel="icon" href="img/logo.png" />
 			</Head>
-			<div>kley.</div>
+			<div className={styles.container}>
+				<Sidebar
+					currentTab={currentTab}
+					setCurrentTab={setCurrentTab}
+				/>
+				<div className={styles.mainContent}>{currentTab.component}</div>
+			</div>
 		</>
 	);
 }
