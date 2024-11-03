@@ -106,11 +106,18 @@
 	border-top-left-radius: 0;
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 600px) {
 	.headingContainer {
 		padding: 20px 10px;
 	}
-	.content{
+
+	.content {
 		padding: 10px;
+	}
+
+	.headingBtnContainer {
+		flex-direction: column;
+		gap: 4px;
+		width: 80%;
 	}
 }

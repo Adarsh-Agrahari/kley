@@ -1,20 +1,21 @@
 /* HeadingSection.module.css */
 
 .headingSection {
-	padding: 20px;
+	padding: 20px 10px;
 }
 
 .heading {
-	font-size: 24px;
+	font-size: 22px;
 	font-weight: bold;
 	margin-bottom: 8px;
 	color: #333;
 }
 
 .subheading {
-	font-size: 16px;
+	font-size: 14px;
 	color: #666;
 	margin-bottom: 20px;
+	font-weight: bold;
 }
 
 .whiteSection {
@@ -23,4 +24,10 @@
 	border-radius: 8px;
 	color: #666;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 600px) {
+	.headingSection {
+		padding: 40px 20px;
+	}
 }

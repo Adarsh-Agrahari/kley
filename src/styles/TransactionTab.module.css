@@ -547,8 +547,16 @@
 	.headingBtnContainer {
 		gap: 5px;
 	}
-	
+
 	.searchInput {
 		width: 120px;
+	}
+
+	.table th {
+		padding: 8px 10px;
+	}
+
+	.table td {
+		padding: 10px 10px;
 	}
 }

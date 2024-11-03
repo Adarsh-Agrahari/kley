@@ -23,14 +23,14 @@ const transactionsData = [
 	{
 		Date: "11/09/24",
 		Time: "13:44:58",
-		Description: "Multi-Currency Ac...",
+		Description: "Multi-Currency Account Setup",
 		Amount: "Rp112,345,678",
 		Status: "In Progress",
 	},
 	{
 		Date: "11/09/24",
 		Time: "13:25:46",
-		Description: "Debit Card",
+		Description: "Debit Card Payment",
 		Amount: "Rp311,456,789",
 		Status: "In Progress",
 	},
@@ -51,14 +51,14 @@ const transactionsData = [
 	{
 		Date: "10/09/24",
 		Time: "13:15:56",
-		Description: "Multi-Currency Ac...",
+		Description: "Multi-Currency Account Setup",
 		Amount: "Rp61,789,012",
 		Status: "Completed",
 	},
 	{
 		Date: "10/09/24",
 		Time: "13:15:56",
-		Description: "Debit Card",
+		Description: "Debit Card Payment",
 		Amount: "Rp71,890,123",
 		Status: "Pending",
 	},
@@ -79,35 +79,35 @@ const transactionsData = [
 	{
 		Date: "10/09/24",
 		Time: "13:15:56",
-		Description: "Multi-Currency Ac...",
+		Description: "Multi-Currency Account Setup",
 		Amount: "Rp5,678,901",
 		Status: "In Progress",
 	},
 	{
 		Date: "10/09/24",
 		Time: "13:15:56",
-		Description: "Debit Card",
+		Description: "Debit Card Payment",
 		Amount: "Rp17,890,123",
 		Status: "Pending",
 	},
 	{
 		Date: "9/09/24",
 		Time: "13:15:56",
-		Description: "Currency Conversi...",
+		Description: "Currency Conversion",
 		Amount: "Rp2,345,678",
 		Status: "Pending",
 	},
 	{
 		Date: "9/09/24",
 		Time: "13:15:56",
-		Description: "Currency Conversi...",
+		Description: "Currency Conversion",
 		Amount: "Rp3,456,789",
 		Status: "Cancelled",
 	},
 	{
 		Date: "9/09/24",
 		Time: "13:15:56",
-		Description: "Multi-Currency Ac...",
+		Description: "Multi-Currency Account Setup",
 		Amount: "Rp147,890,123",
 		Status: "Completed",
 	},
@@ -123,6 +123,10 @@ const transactionsData = [
 export default function TransactionHistory() {
 	const [transactions, setTransactions] = useState(transactionsData);
 	const [sortConfig, setSortConfig] = useState(null);
+	const [selectAll, setSelectAll] = useState(false);
+	const [selectedRows, setSelectedRows] = useState(
+		Array(transactionsData.length).fill(false)
+	);
 
 	const handleSort = (key) => {
 		let direction = "asc";
@@ -144,11 +148,22 @@ export default function TransactionHistory() {
 		setTransactions(sortedTransactions);
 	};
 
+	const toggleSelectAll = () => {
+		setSelectAll(!selectAll);
+		setSelectedRows(Array(transactions.length).fill(!selectAll));
+	};
+
+	const toggleRowSelection = (index) => {
+		const updatedSelection = [...selectedRows];
+		updatedSelection[index] = !updatedSelection[index];
+		setSelectedRows(updatedSelection);
+		setSelectAll(updatedSelection.every((isSelected) => isSelected));
+	};
+
 	return (
 		<div className={styles.transactionHistory}>
 			<div className={styles.sectionHeader}>
 				<div className={styles.sectionTitle}>
-					{" "}
 					<BsClockHistory className={styles.sectionIcon} />
 					Transaction History
 				</div>
@@ -168,7 +183,11 @@ export default function TransactionHistory() {
 				<thead>
 					<tr>
 						<th>
-							<input type="checkbox" />
+							<input
+								type="checkbox"
+								checked={selectAll}
+								onChange={toggleSelectAll}
+							/>
 						</th>
 						<th onClick={() => handleSort("Date")}>
 							<p className={styles.tableHeader}>
@@ -192,7 +211,6 @@ export default function TransactionHistory() {
 									))}
 							</p>
 						</th>
-
 						<th>Description</th>
 						<th>
 							<p className={styles.tableHeader}>
@@ -207,7 +225,11 @@ export default function TransactionHistory() {
 					{transactions.map((transaction, index) => (
 						<tr key={index}>
 							<td>
-								<input type="checkbox" />
+								<input
+									type="checkbox"
+									checked={selectedRows[index]}
+									onChange={() => toggleRowSelection(index)}
+								/>
 							</td>
 							<td className={styles.transactionDate}>
 								{transaction.Date}
@@ -215,40 +237,31 @@ export default function TransactionHistory() {
 							<td>{transaction.Time}</td>
 							<td>{transaction.Description}</td>
 							<td>{transaction.Amount}</td>
-							{transaction.Status === "Completed" && (
-								<td
-									className={
-										styles.transactionStatusCompleted
-									}
-								>
+							<td
+								className={
+									transaction.Status === "Completed"
+										? styles.transactionStatusCompleted
+										: transaction.Status === "In Progress"
+										? styles.transactionStatusProgress
+										: transaction.Status === "Pending"
+										? styles.transactionStatusPending
+										: styles.transactionStatusCancelled
+								}
+							>
+								{transaction.Status === "Completed" && (
 									<FaRegCheckCircle />
-									<p>{transaction.Status}</p>
-								</td>
-							)}
-							{transaction.Status === "In Progress" && (
-								<td
-									className={styles.transactionStatusProgress}
-								>
+								)}
+								{transaction.Status === "In Progress" && (
 									<TbProgress />
-									<p>{transaction.Status}</p>
-								</td>
-							)}
-							{transaction.Status === "Pending" && (
-								<td className={styles.transactionStatusPending}>
+								)}
+								{transaction.Status === "Pending" && (
 									<FaRegClock />
-									<p>{transaction.Status}</p>
-								</td>
-							)}
-							{transaction.Status === "Cancelled" && (
-								<td
-									className={
-										styles.transactionStatusCancelled
-									}
-								>
+								)}
+								{transaction.Status === "Cancelled" && (
 									<CiNoWaitingSign />
-									<p>{transaction.Status}</p>
-								</td>
-							)}
+								)}
+								<p>{transaction.Status}</p>
+							</td>
 						</tr>
 					))}
 				</tbody>
