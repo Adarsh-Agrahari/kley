@@ -113,9 +113,7 @@ export default function Sidebar({ currentTab, setCurrentTab }) {
 		const handleResize = () => {
 			if (window.innerWidth < breakpoint) {
 				setIsOpen(false);
-			} else {
-				setIsOpen(true);
-			}
+			}  
 		};
 		handleResize();
 	}, [breakpoint, currentTab]);
