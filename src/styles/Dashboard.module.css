@@ -85,8 +85,26 @@
 /* Main Content Area */
 .mainContent {
 	flex: 1;
-	padding: 20px;
-	margin-left: constant(safe-area-inset-left);
+	padding: 20px 20px 0px 20px;
+	max-height: 100vh;
+	overflow-y: scroll;
+	width: 100%;
+}
+
+.mainContent::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+	border-radius: 50px;
+}
+
+.mainContent::-webkit-scrollbar-thumb {
+	background: #4c67d4;
+	border-radius: 50px;
+}
+
+.mainContent::-webkit-scrollbar-thumb:hover {
+	background: #3012db;
+	border-radius: 50px;
 }
 
 /* Button Styles */
@@ -251,18 +269,18 @@
 }
 
 .menuSection::-webkit-scrollbar {
-  width: 2px;
-  border-radius: 50px;
+	width: 2px;
+	border-radius: 50px;
 }
 
 .menuSection::-webkit-scrollbar-thumb {
-  background: #4c67d4;
-  border-radius: 50px;
+	background: #4c67d4;
+	border-radius: 50px;
 }
 
 .menuSection::-webkit-scrollbar-thumb:hover {
-  background: #3012db;
-  border-radius: 50px;
+	background: #3012db;
+	border-radius: 50px;
 }
 
 /* ProCard */
