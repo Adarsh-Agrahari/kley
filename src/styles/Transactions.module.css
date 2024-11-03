@@ -1,0 +1,107 @@
+/* HeadingSection.module.css */
+
+.headingContainer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.headingSection {
+	padding: 20px 10px;
+}
+
+.heading {
+	font-size: 22px;
+	font-weight: bold;
+	margin-bottom: 8px;
+	color: #333;
+}
+
+.subheading {
+	font-size: 14px;
+	color: #666;
+	margin-bottom: 20px;
+	font-weight: bold;
+}
+
+.headingBtnContainer {
+	display: flex;
+	gap: 10px;
+}
+
+.headingBtn1 {
+	display: flex;
+	cursor: pointer;
+	gap: 10px;
+	border-radius: 5px;
+	border: solid 1px #d2d0d0;
+	background-color: white;
+	font-size: 14px;
+	padding: 5px 10px;
+}
+
+.headingBtn2 {
+	display: flex;
+	cursor: pointer;
+	gap: 10px;
+	border-radius: 5px;
+	border: solid 1px #b0b0b0;
+	background-color: black;
+	color: white;
+	font-size: 14px;
+	padding: 5px 10px;
+}
+
+.whiteSection {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	color: #666;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tabsComponent {
+	background-color: #fff;
+}
+
+.tabs {
+	display: flex;
+	background-color: #f5f5f5;
+}
+
+.tab {
+	padding: 10px 20px;
+	cursor: pointer;
+	font-size: 12px;
+	color: #555;
+	transition: all 0.3s;
+}
+
+.tab:hover {
+	color: #333;
+}
+
+.activeTab {
+	font-weight: bold;
+	background-color: #fff;
+	position: relative;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.activeTab::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 50%;
+	border-bottom: 2px solid blue;
+}
+
+.content {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 10px;
+	border-top-left-radius: 0;
+}
