@@ -529,6 +529,26 @@
 
 @media screen and (max-width: 600px) {
 	.mainContent {
-		padding: 10px 0 10px 10px;
+		padding: 20px 0 10px 0px;
+	}
+	.cardNumber {
+		font-size: 18px;
+	}
+
+	.expiration,
+	.cvc {
+		font-size: 12px;
+	}
+
+	.cardSection {
+		padding: 10px;
+	}
+
+	.headingBtnContainer {
+		gap: 5px;
+	}
+	
+	.searchInput {
+		width: 120px;
 	}
 }
