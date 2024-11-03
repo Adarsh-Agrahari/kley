@@ -50,6 +50,7 @@
 	color: #fff;
 	padding: 16px;
 	border-radius: 8px;
+	max-width: 600px;
 }
 .cardDetails {
 	display: flex;
@@ -512,7 +513,7 @@
 	font-size: 14px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1024px) {
 	.container {
 		flex-direction: column;
 	}
