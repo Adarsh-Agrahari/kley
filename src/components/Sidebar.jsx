@@ -25,6 +25,7 @@ import MyCards from "./general/MyCards";
 import Transfer from "./general/Transfer";
 import Overview from "./general/Overview";
 import { IoMdMenu } from "react-icons/io";
+import { useSidebar } from "@/context/SidebarContext.js";
 
 const users = [
 	{ img: "img/profile.png", name: "Hidayatama Irsadanar", org: "Tokomedia" },
@@ -106,20 +107,16 @@ const menu = {
 };
 
 export default function Sidebar({ currentTab, setCurrentTab }) {
-	const [isOpen, setIsOpen] = useState(true);
 	const [user, setUser] = useState(users[0]);
 	const [isOpenUserMenu, setIsOpenUserMenu] = useState(false);
+	const { isSideBarOpen, toggleSidebar } = useSidebar();
 
 	const breakpoint = 1024;
-
-	const toggleSidebar = () => {
-		setIsOpen(!isOpen);
-	};
 
 	useEffect(() => {
 		const handleResize = () => {
 			if (window.innerWidth < breakpoint) {
-				setIsOpen(false);
+				toggleSidebar();
 			}
 		};
 		handleResize();
@@ -137,7 +134,7 @@ export default function Sidebar({ currentTab, setCurrentTab }) {
 			</button>
 			<div
 				className={`${styles.sidebar} ${
-					isOpen ? styles.open : styles.closed
+					isSideBarOpen ? styles.open : styles.closed
 				}`}
 			>
 				<div className={styles.sidebarHeader}>
@@ -146,18 +143,18 @@ export default function Sidebar({ currentTab, setCurrentTab }) {
 							src="img/logo.png"
 							className={styles.profileImage}
 						></img>
-						{isOpen && (
+						{isSideBarOpen && (
 							<div className={styles.sidebarLogoText}>kley.</div>
 						)}
 					</div>
 
-					{isOpen && (
+					{isSideBarOpen && (
 						<button onClick={toggleSidebar}>
 							<FiSidebar />
 						</button>
 					)}
 				</div>
-				{!isOpen && (
+				{!isSideBarOpen && (
 					<button
 						onClick={toggleSidebar}
 						className={styles.sidebarToggleBtn}
@@ -174,7 +171,7 @@ export default function Sidebar({ currentTab, setCurrentTab }) {
 						alt="Profile"
 						className={styles.profileImage}
 					/>
-					{isOpen && (
+					{isSideBarOpen && (
 						<>
 							<div className={styles.profileInfo}>
 								<p className={styles.profileName}>
@@ -193,14 +190,14 @@ export default function Sidebar({ currentTab, setCurrentTab }) {
 						</>
 					)}
 				</div>
-				{isOpen && <hr className={styles.divider} />}
+				{isSideBarOpen && <hr className={styles.divider} />}
 
 				{/* Menu Section */}
 				<div className={styles.menuSection}>
 					<div className={styles.sidebarMenu}>
 						{Object.keys(menu).map((category) => (
 							<div key={category} className={styles.menuItems}>
-								{isOpen ? (
+								{isSideBarOpen ? (
 									<p className={styles.menuTitle}>
 										{category}
 									</p>
@@ -232,7 +229,7 @@ export default function Sidebar({ currentTab, setCurrentTab }) {
 												>
 													{item.icon}
 												</div>
-												{isOpen && item.name}
+												{isSideBarOpen && item.name}
 											</button>
 										</li>
 									))}
@@ -245,15 +242,15 @@ export default function Sidebar({ currentTab, setCurrentTab }) {
 							<div className={styles.icon}>
 								<IoSettingsOutline />
 							</div>
-							{isOpen && "Settings"}
+							{isSideBarOpen && "Settings"}
 						</button>
 						<button className={styles.menuButton}>
 							<div className={styles.icon}>
 								<MdOutlineHelpOutline />
 							</div>
-							{isOpen && "Help Center"}
+							{isSideBarOpen && "Help Center"}
 						</button>
-						{isOpen && <ProCard />}
+						{isSideBarOpen && <ProCard />}
 					</div>
 				</div>
 				{isOpenUserMenu && (

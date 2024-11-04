@@ -536,6 +536,10 @@
 	.cardNumber {
 		font-size: 14px;
 	}
+
+	.cardName {
+		font-size: 16px;
+	}
 }
 
 @media screen and (max-width: 1060px) {
@@ -557,7 +561,7 @@
 		width: 100%;
 		overflow-x: scroll;
 	}
-	
+
 	.cardNumber {
 		font-size: 22px;
 	}
@@ -566,6 +570,10 @@
 	.expiration,
 	.cvc {
 		font-size: 14px;
+	}
+
+	.cardName {
+		font-size: 18px;
 	}
 }
 
