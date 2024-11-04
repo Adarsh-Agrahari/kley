@@ -146,6 +146,15 @@
 	margin: 0 0 20px;
 }
 
+.cardNumberOpen {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	font-size: 24px;
+	letter-spacing: 2px;
+	margin: 0 0 20px;
+}
+
 /* Card Holder and Expiration */
 .cardHolder,
 .expiration,
@@ -515,19 +524,40 @@
 	font-size: 14px;
 }
 
-@media screen and (max-width: 1400px) {
-	.cardNumber {
-		font-size: 20px;
+@media screen and (max-width: 1510px) {
+	.cardNumberOpen {
+		font-size: 21px;
 	}
 }
 
-@media screen and (max-width: 1240px) {
+@media screen and (max-width: 1410px) {
+	.cardNumber {
+		font-size: 20px;
+	}
+
+	.cardNumberOpen {
+		font-size: 18px;
+	}
+}
+
+@media screen and (max-width: 1310px) {
+	.cardNumberOpen {
+		font-size: 15px;
+	}
+}
+
+@media screen and (max-width: 1245px) {
 	.cardNumber {
 		font-size: 18px;
 	}
+
 	.cardHolder,
 	.expiration,
 	.cvc {
+		font-size: 12px;
+	}
+
+	.cardNumberOpen {
 		font-size: 12px;
 	}
 }
@@ -535,6 +565,10 @@
 @media screen and (max-width: 1140px) {
 	.cardNumber {
 		font-size: 14px;
+	}
+
+	.cardNumberOpen {
+		font-size: 10px;
 	}
 
 	.cardName {
@@ -545,6 +579,10 @@
 @media screen and (max-width: 1060px) {
 	.cardNumber {
 		font-size: 14px;
+	}
+
+	.cardNumberOpen {
+		font-size: 8px;
 	}
 }
 
@@ -566,6 +604,10 @@
 		font-size: 22px;
 	}
 
+	.cardNumberOpen {
+		font-size: 22px;
+	}
+
 	.cardHolder,
 	.expiration,
 	.cvc {
@@ -574,6 +616,12 @@
 
 	.cardName {
 		font-size: 18px;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.cardNumberOpen {
+		font-size: 14px;
 	}
 }
 

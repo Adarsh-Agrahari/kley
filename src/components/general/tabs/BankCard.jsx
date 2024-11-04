@@ -4,8 +4,10 @@ import { LuWalletCards } from "react-icons/lu";
 import { IoMdAdd } from "react-icons/io";
 import { IoEyeOutline } from "react-icons/io5";
 import { FaEyeSlash } from "react-icons/fa";
+import { useSidebar } from "@/context/SidebarContext.js";
 
 export default function Transaction() {
+	const { isSideBarOpen } = useSidebar();
 	const [isHidden, setIsHidden] = useState(false);
 	const cardNumber = "100-1244-1255-325";
 
@@ -36,7 +38,13 @@ export default function Transaction() {
 				/>
 				<div className={styles.cardDetails}>
 					<p className={styles.cardName}>Kley Card</p>
-					<p className={styles.cardNumber}>
+					<p
+						className={
+							(isSideBarOpen && window.innerWidth > 600)
+								? styles.cardNumberOpen
+								: styles.cardNumber
+						}
+					>
 						{isHidden ? cardNumber.replace(/\d/g, "X") : cardNumber}
 						{!isHidden && (
 							<IoEyeOutline
