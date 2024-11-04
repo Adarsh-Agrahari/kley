@@ -370,12 +370,19 @@
 	.sidebar.closed {
 		display: none;
 	}
+
 	.sidebar.open {
 		position: fixed;
 	}
+
 	.mainContent::-webkit-scrollbar {
 		width: 4px;
 		height: 4px;
+	}
+
+	.switchProfile {
+		top: 140px;
+		left: 100px;
 	}
 }
 

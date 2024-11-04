@@ -36,11 +36,6 @@ const users = [
 	},
 ];
 
-const userDefault = {
-	name: "Hidayatama Irsadanar",
-	org: "Tokomedia",
-};
-
 const menu = {
 	General: [
 		{
@@ -112,7 +107,7 @@ const menu = {
 
 export default function Sidebar({ currentTab, setCurrentTab }) {
 	const [isOpen, setIsOpen] = useState(true);
-	const [user, setUser] = useState(userDefault);
+	const [user, setUser] = useState(users[0]);
 	const [isOpenUserMenu, setIsOpenUserMenu] = useState(false);
 
 	const breakpoint = 1024;
