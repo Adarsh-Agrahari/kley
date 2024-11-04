@@ -265,6 +265,7 @@ export default function Sidebar({ currentTab, setCurrentTab }) {
 					<div className={styles.switchProfile}>
 						{users.map((user, index) => (
 							<div
+								key={index}
 								className={styles.profileBtn}
 								onClick={() => handleUserChange(users[index])}
 							>
