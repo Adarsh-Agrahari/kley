@@ -57,11 +57,11 @@
 	flex-direction: column;
 }
 .cardName {
-	font-size: 1.2em;
+	font-size: 18px;
 	font-weight: bold;
 }
 .cardNumber {
-	font-size: 1.5em;
+	font-size: 22px;
 	letter-spacing: 2px;
 }
 .cardHolder,
@@ -98,6 +98,7 @@
 .card {
 	position: relative;
 	width: inherit;
+	max-width: 400px;
 	aspect-ratio: 16 / 9;
 	overflow: hidden;
 	color: #fff;
@@ -514,16 +515,57 @@
 	font-size: 14px;
 }
 
+@media screen and (max-width: 1400px) {
+	.cardNumber {
+		font-size: 20px;
+	}
+}
+
+@media screen and (max-width: 1240px) {
+	.cardNumber {
+		font-size: 18px;
+	}
+	.cardHolder,
+	.expiration,
+	.cvc {
+		font-size: 12px;
+	}
+}
+
+@media screen and (max-width: 1140px) {
+	.cardNumber {
+		font-size: 14px;
+	}
+}
+
+@media screen and (max-width: 1060px) {
+	.cardNumber {
+		font-size: 14px;
+	}
+}
+
 @media screen and (max-width: 1024px) {
 	.container {
 		flex-direction: column;
 	}
+
 	.leftSide {
 		width: 100%;
 	}
+
 	.mainContent {
 		width: 100%;
 		overflow-x: scroll;
+	}
+	
+	.cardNumber {
+		font-size: 22px;
+	}
+
+	.cardHolder,
+	.expiration,
+	.cvc {
+		font-size: 14px;
 	}
 }
 
@@ -531,6 +573,11 @@
 	.mainContent {
 		padding: 20px 0 10px 0px;
 	}
+
+	.card {
+		max-width: 100%;
+	}
+
 	.cardNumber {
 		font-size: 18px;
 	}
