@@ -35,7 +35,7 @@ export default function Transactions() {
 				</div>
 			</div>
 
-      {/* Tabs Component */}
+			{/* Tabs Component */}
 			<div className={styles.tabsComponent}>
 				{/* Tabs */}
 				<div className={styles.tabs}>
@@ -53,14 +53,13 @@ export default function Transactions() {
 				</div>
 
 				{/* Content Area */}
-				
 			</div>
-      <div className={styles.content}>
-					{activeTab === 0 && <div>Overview Content</div>}
-					{activeTab === 1 && <Transaction/>}
-					{activeTab === 2 && <div>Cards Content</div>}
-					{activeTab === 3 && <div>Settings Content</div>}
-				</div>
+			<div className={styles.content}>
+				{activeTab === 0 && <div>Overview Content</div>}
+				{activeTab === 1 && <Transaction />}
+				{activeTab === 2 && <div>Cards Content</div>}
+				{activeTab === 3 && <div>Settings Content</div>}
+			</div>
 		</div>
 	);
 }

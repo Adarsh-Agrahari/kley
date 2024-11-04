@@ -335,6 +335,33 @@
 	color: blue;
 }
 
+/* Switch Profile */
+.switchProfile {
+	width: fit-content;
+	height: fit-content;
+	padding: 5px;
+	background-color: #fff;
+	position: fixed;
+	top: 70px;
+	left: 250px;
+	border-radius: 15px;
+	border: 1px solid #ccc;
+}
+
+.profileBtn {
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	border-radius: 12px;
+	transition: background-color 0.3s ease;
+	cursor: pointer;
+}
+
+.profileBtn:hover {
+	background-color: #ebeaea;
+}
+
 @media screen and (max-width: 600px) {
 	.toggleIconBtn {
 		visibility: visible;
@@ -353,7 +380,6 @@
 }
 
 @media screen and (max-width: 1024px) {
-	
 	.mainContent {
 		padding: 20px 0px 0px 0px;
 	}

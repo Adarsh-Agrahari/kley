@@ -26,8 +26,18 @@ import Transfer from "./general/Transfer";
 import Overview from "./general/Overview";
 import { IoMdMenu } from "react-icons/io";
 
-const user = {
-	name: "Hidayatma Isradana",
+const users = [
+	{ img: "img/profile.png", name: "Hidayatama Irsadanar", org: "Tokomedia" },
+	{ img: "img/profile2.png", name: "Nachtwan Pranderer", org: "Globalis" },
+	{
+		img: "img/profile3.png",
+		name: "FleurDeLune KaraSu",
+		org: "Fjord Viking",
+	},
+];
+
+const userDefault = {
+	name: "Hidayatama Irsadanar",
 	org: "Tokomedia",
 };
 
@@ -102,6 +112,8 @@ const menu = {
 
 export default function Sidebar({ currentTab, setCurrentTab }) {
 	const [isOpen, setIsOpen] = useState(true);
+	const [user, setUser] = useState(userDefault);
+	const [isOpenUserMenu, setIsOpenUserMenu] = useState(false);
 
 	const breakpoint = 1024;
 
@@ -113,10 +125,15 @@ export default function Sidebar({ currentTab, setCurrentTab }) {
 		const handleResize = () => {
 			if (window.innerWidth < breakpoint) {
 				setIsOpen(false);
-			}  
+			}
 		};
 		handleResize();
 	}, [breakpoint, currentTab]);
+
+	const handleUserChange = (user) => {
+		setUser(user);
+		setIsOpenUserMenu((prev) => !prev);
+	};
 
 	return (
 		<>
@@ -158,7 +175,7 @@ export default function Sidebar({ currentTab, setCurrentTab }) {
 				{/* Profile Section */}
 				<div className={styles.profileSection}>
 					<img
-						src="img/profile.png"
+						src={user.img}
 						alt="Profile"
 						className={styles.profileImage}
 					/>
@@ -170,7 +187,12 @@ export default function Sidebar({ currentTab, setCurrentTab }) {
 								</p>
 								<p className={styles.profileOrg}>{user.org}</p>
 							</div>
-							<button className={styles.switchProfileBtn}>
+							<button
+								className={styles.switchProfileBtn}
+								onClick={() =>
+									setIsOpenUserMenu(!isOpenUserMenu)
+								}
+							>
 								<LuChevronsUpDown />
 							</button>
 						</>
@@ -239,6 +261,32 @@ export default function Sidebar({ currentTab, setCurrentTab }) {
 						{isOpen && <ProCard />}
 					</div>
 				</div>
+				{isOpenUserMenu && (
+					<div className={styles.switchProfile}>
+						{users.map((user, index) => (
+							<div
+								className={styles.profileBtn}
+								onClick={() => handleUserChange(users[index])}
+							>
+								<img
+									src={user.img}
+									alt="Profile"
+									className={styles.profileImage}
+								/>
+								<>
+									<div className={styles.profileInfo}>
+										<p className={styles.profileName}>
+											{user.name}
+										</p>
+										<p className={styles.profileOrg}>
+											{user.org}
+										</p>
+									</div>
+								</>
+							</div>
+						))}
+					</div>
+				)}
 			</div>
 		</>
 	);
